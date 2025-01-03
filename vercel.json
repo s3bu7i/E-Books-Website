@@ -1,11 +1,15 @@
 {
   "version": 2,
   "builds": [
-    { "src": "ebook_site/asgi.py", "use": "@vercel/python" },
-    { "src": "staticfiles/**", "use": "@vercel/static" }
+    {
+      "src": "ebook_site/asgi.py",
+      "use": "@vercel/python"
+    }
   ],
   "routes": [
-    { "src": "/static/(.*)", "dest": "/staticfiles/$1" },
-    { "src": "/(.*)", "dest": "ebook_site/asgi.py" }
+    {
+      "src": "/(.*)",
+      "dest": "ebook_site/asgi.py"
+    }
   ]
 }
