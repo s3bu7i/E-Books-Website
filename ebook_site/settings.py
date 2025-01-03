@@ -25,10 +25,11 @@ INSTALLED_APPS = [
 # Middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # For serving static files
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Əgər istifadə edirsinizsə
+    'django.contrib.sessions.middleware.SessionMiddleware',  # Bu xətt əlavə olunmalıdır
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',  # Bundan sonra olmalıdır
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -59,10 +60,7 @@ WSGI_APPLICATION = 'ebook_site.wsgi.application'
 # Database
 DATABASES = {
     'default': dj_database_url.config(
-        default=config(
-            'DATABASE_URL',
-            default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}"
-        )
+        default=config('DATABASE_URL')
     )
 }
 
