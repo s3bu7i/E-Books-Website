@@ -7,8 +7,8 @@ constantly==23.10.4
 cryptography==44.0.0
 daphne==4.0.0
 dj-database-url==1.2.0
-Django==4.2.5
-gunicorn==20.1.0
+Django==4.2.17
+gunicorn==22.0.0
 hyperlink==21.0.0
 idna==3.10
 incremental==24.7.2
