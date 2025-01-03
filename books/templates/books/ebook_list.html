@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-Book List</title>
+    <style>
+        body {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #f2f2f2;
+            color: #000;
+        }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+            font-weight: bold;
+        }
+        ul {
+            list-style-type: square;
+            width: 80%;
+            margin: 20px auto;
+            padding: 0;
+        }
+        li {
+            background: #fff;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .add-btn {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            padding: 10px;
+            width: 200px;
+            background: #007bff;
+            color: white;
+            border: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>E-Book List</h1>
+    <a class="add-btn" href="{% url 'ebook_create' %}">Add New E-Book</a>
+    <ul>
+        {% for ebook in ebooks %}
+            <li>
+                <a href="{% url 'ebook_detail' ebook.pk %}">{{ ebook.title }}</a>
+                <br>
+                <small>by {{ ebook.author }}</small>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

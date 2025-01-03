@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ ebook.title }}</title>
+    <style>
+        body {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #f2f2f2;
+            color: #000;
+        }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+        }
+        .container {
+            width: 70%;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+            font-weight: bold;
+        }
+        .action-btns {
+            margin-top: 20px;
+        }
+        .action-btns a {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ ebook.title }}</h1>
+    <div class="container">
+        <p><strong>Author:</strong> {{ ebook.author }}</p>
+        <p><strong>Description:</strong></p>
+        <p>{{ ebook.description }}</p>
+        <a href="{{ ebook.file.url }}">Download</a>
+        <div class="action-btns">
+            <a href="{% url 'ebook_update' ebook.pk %}">Edit</a> |
+            <a href="{% url 'ebook_delete' ebook.pk %}">Delete</a>
+        </div>
+    </div>
+</body>
+</html>
